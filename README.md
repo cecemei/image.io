@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 If you want to save downloaded images and processed color palettes
 
-'python imageprocessing.py save'
+`python imageprocessing.py save`
 
 Or you don't want to save anything
 
