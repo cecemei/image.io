@@ -92,7 +92,10 @@ def getTop3colors(writefile, logger = None, PathDict = None, saveRawImg = False,
                     i = 0
 
         else:
-            print("Missed image: %s"%url)
+            if logger:
+                logger.warning("Missed image: %s"%url)
+            else:
+                print("Missed image: %s"%url)
 
 
 
