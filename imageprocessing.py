@@ -59,16 +59,16 @@ def getTop3colors(writefile, logger = None, PathDict = None, saveRawImg = False,
 
         #################Get color palette##################
             
-            topcolors = IMG.get_palette(color_count=3,quality=10)
+            topcolors = IMG.get_palette(color_count=3,quality=10)[:3]
             if saveColorPalette:
-                palette = Image.new('RGB', (20*3, 20))
-                draw = ImageDraw.Draw(palette)
-                x = 0
-                for col in topcolors:
-                    draw.rectangle([x, 0, x+20, 20], fill=col)
-                    x += 20
-                del draw
                 try:
+                    palette = Image.new('RGB', (20*3, 20))
+                    draw = ImageDraw.Draw(palette)
+                    x = 0
+                    for col in topcolors:
+                        draw.rectangle([x, 0, x+20, 20], fill=col)
+                        x += 20
+                    del draw
                     palette.save(PathDict[url][1], "PNG")
                 except Exception as e:
                     raise e
